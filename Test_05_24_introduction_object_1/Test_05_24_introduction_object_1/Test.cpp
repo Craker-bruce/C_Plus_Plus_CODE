@@ -1,21 +1,35 @@
 #include<iostream>
+#include <string.h>
 using namespace std;
 
 class CGoods
 {
 public:
-	void RegisterGoods(char* name, size_t count, float price)
+	void RegisterGoods(const char* name, size_t count, float price)
 	{
 		strcpy(m_name, name);
 		m_count = count;
 		m_price = price;
+		m_total_price = m_price * m_count;
 	}
-	float GetTotalPrice();
-	char* GetName();
-	size_t GetCount();
-	float GetPrice();
+	float GetTotalPrice()
+	{
+		return m_total_price;
+	}
+	char* GetName() 
+	{
+		return m_name;
+	}
+	size_t GetCount()
+	{
+		return m_count;
+	}
+	float GetPrice()
+	{
+		return m_price;
+	}
 private:
-	char name[20];
+	char m_name[20];
 	size_t m_count;
 	float m_price;
 	float m_total_price;
@@ -25,6 +39,8 @@ void main()
 {
 	CGoods c1;
 	c1.RegisterGoods("C++", 10, 56.9);
+	cout << "name = " << c1.GetName() << endl;
+	cout << "total price = " << c1.GetTotalPrice() << endl;
 }
 /*
 typedef struct Test

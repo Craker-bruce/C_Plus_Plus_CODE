@@ -1,0 +1,5 @@
+﻿  Test.cpp
+C:\Users\13279\Documents\Go fot it\C++\C_Plus_Plus_CODE\Test_05_24_introduction_object_1\Test_05_24_introduction_object_1\Test.cpp(10,1): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : 参见“strcpy”的声明
+C:\Users\13279\Documents\Go fot it\C++\C_Plus_Plus_CODE\Test_05_24_introduction_object_1\Test_05_24_introduction_object_1\Test.cpp(39,1): warning C4326: “main”的返回类型应为“int”而非“void”
+C:\Users\13279\Documents\Go fot it\C++\C_Plus_Plus_CODE\Test_05_24_introduction_object_1\Test_05_24_introduction_object_1\Test.cpp(41,34): warning C4305: “参数”: 从“double”到“float”截断
