@@ -1,7 +1,15 @@
 #include<iostream>
 #include <string.h>
 using namespace std;
-
+void fun()
+{
+	cout << "name" << endl;
+}
+void main()
+{
+	fun();
+}
+/*
 class CGoods
 {
 public:
@@ -16,7 +24,7 @@ public:
 	{
 		return m_total_price;
 	}
-	char* GetName() 
+	char* GetName()
 	{
 		return m_name;
 	}
@@ -42,7 +50,7 @@ void main()
 	cout << "name = " << c1.GetName() << endl;
 	cout << "total price = " << c1.GetTotalPrice() << endl;
 }
-/*
+
 typedef struct Test
 {
 	int a;
@@ -58,7 +66,7 @@ public:
 	double b;
 	char c;
 };
-//class的访问属性 公有  私有 访问  默认是私有 一般的数据成员都是私有的 
+//class的访问属性 公有  私有 访问  默认是私有 一般的数据成员都是私有的
 //而struct默认是公有的
 void main()
 {
