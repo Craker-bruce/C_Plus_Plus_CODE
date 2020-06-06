@@ -1,13 +1,109 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <list>
+#include <functional>
+#include <string>
 using namespace std;
+
+
+/*
+void main()
+{
+	string str1 = "Hello";
+	cout << str1[6] << endl; // []不进行越界检查
+	cout << str1.at(0) << endl;//进行越界检查
+}
+
+void main()
+{
+	string str1 = "Hello";
+	string str2 = "Bit";
+	string str = str1 + str2;
+	cout << str << endl;
+
+	string str3;
+	cout << "input str3:";
+	//cin >> str3;
+	getline(cin, str3);
+	cout << "str3 = " << str3 << endl;
+
+}
+
+
+void main()
+{
+	string str = "http://www.cplusplus.com/reference/lsit/list/list";
+	size_t start_pos = str.find('w');
+	size_t end_pos = str.find('m');
+	                            //起始位置    //长度
+	string tmp_str = str.substr(start_pos, end_pos - start_pos + 1);
+	cout << tmp_str << endl;
+}
+
+
+void main()
+{
+	string str = "http://www.cplusplus.com/reference/lsit/list/list";
+	//size_t pos = str.find("refr",0,3);
+	size_t pos = str.rfind('t');
+
+	if (pos != string::npos)
+		cout << "pos = " << pos << endl;
+	else
+		cout << "查找的字符不存在." << endl;
+}
+
+int my_strlen(const char* str)
+{
+	int count = 0;
+	while (*str++ != '\0')
+		count++;
+	return count;
+}
+
+void main()
+{
+	string str("abcdefg"); // C
+	cout << str << endl;
+
+	cout << "str length =  " << my_strlen(str.c_str()) << endl;
+}
+
+void main()
+{
+	string str("abcxyz");
+	cout << str << endl;
+
+	for (int i = 0; i < str.size(); ++i)
+		cout << str[i];
+	cout << endl;
+
+	auto it = str.begin();
+	while (it != str.end())
+	{
+		cout << *it;
+		++it;
+	}
+	cout << endl;
+
+	for (const auto& e : str)
+		cout << e;
+	cout << endl;
+
+	auto rit = str.rbegin();
+	while (rit != str.rend())
+	{
+		cout << *rit;
+		rit++;
+	}
+	cout << endl;
+}
 
 
 void fun(int n)
 {
 	string str;
-	//str.reserve(100);
+	str.reserve(100);//效率提升
 	for (int i = 0; i < n; ++i)
 	{
 		cout << "capacity = " << str.capacity() << endl;
@@ -18,7 +114,7 @@ void main()
 {
 	fun(100);
 }
-/*
+
 void main()
 {
 	string str2("abcdef");
@@ -84,7 +180,7 @@ namespace bit
 	class list
 	{
 	public:
-		 
+
 	};
 }
 
@@ -235,7 +331,7 @@ void main()
 
 	auto pos = find(lt1.begin(), lt1.end(), 8);
 	lt1.insert(pos, 666);
-	
+
 	if (!lt1.empty())
 	{
 		for (const auto& e : lt1)
