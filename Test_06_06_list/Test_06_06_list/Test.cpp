@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+ï»¿#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <list>
 #include <functional>
@@ -6,12 +6,52 @@
 using namespace std;
 
 
+void main()
+{
+	int array[] = { 1, 2, 3, 4, 0, 5, 6, 7, 8, 9 };
+	int n = sizeof(array) / sizeof(int);
+	list<int> mylist(array, array + n);
+	auto it = mylist.begin();
+	while (it != mylist.end())
+	{
+		if (*it != 0)
+			cout << *it << " "; //1234
+		else
+			it = mylist.erase(it);
+		++it;
+	}
+}
+
+
+
+/*
+int main()
+{
+	int ar[] = { 0,1, 2, 3, 4,  5, 6, 7, 8, 9 };
+	int n = sizeof(ar) / sizeof(int);// n = 10
+	list<int> mylist(ar, ar + n);
+	list<int>::iterator pos = find(mylist.begin(), mylist.end(), 5);
+	reverse(mylist.begin(), pos);
+	reverse(pos, mylist.end());
+	list<int>::const_reverse_iterator crit = mylist.crbegin();
+	while (crit != mylist.crend())
+	{
+		cout << *crit << " ";
+		++crit;
+	}
+	cout << endl;
+}
+*/
+
+
+
+
 /*
 void main()
 {
 	string str1 = "Hello";
-	cout << str1[6] << endl; // []²»½øĞĞÔ½½ç¼ì²é
-	cout << str1.at(0) << endl;//½øĞĞÔ½½ç¼ì²é
+	cout << str1[6] << endl; // []ä¸è¿›è¡Œè¶Šç•Œæ£€æŸ¥
+	cout << str1.at(0) << endl;//è¿›è¡Œè¶Šç•Œæ£€æŸ¥
 }
 
 void main()
@@ -35,7 +75,7 @@ void main()
 	string str = "http://www.cplusplus.com/reference/lsit/list/list";
 	size_t start_pos = str.find('w');
 	size_t end_pos = str.find('m');
-	                            //ÆğÊ¼Î»ÖÃ    //³¤¶È
+								//èµ·å§‹ä½ç½®    //é•¿åº¦
 	string tmp_str = str.substr(start_pos, end_pos - start_pos + 1);
 	cout << tmp_str << endl;
 }
@@ -50,7 +90,7 @@ void main()
 	if (pos != string::npos)
 		cout << "pos = " << pos << endl;
 	else
-		cout << "²éÕÒµÄ×Ö·û²»´æÔÚ." << endl;
+		cout << "æŸ¥æ‰¾çš„å­—ç¬¦ä¸å­˜åœ¨." << endl;
 }
 
 int my_strlen(const char* str)
@@ -103,7 +143,7 @@ void main()
 void fun(int n)
 {
 	string str;
-	str.reserve(100);//Ğ§ÂÊÌáÉı
+	str.reserve(100);//æ•ˆç‡æå‡
 	for (int i = 0; i < n; ++i)
 	{
 		cout << "capacity = " << str.capacity() << endl;
@@ -121,17 +161,17 @@ void main()
 	cout << str2 << endl;
 	cout << "str2 = " << str2 << endl;
 	cout << "size = " << str2.size() << endl;
-	cout << "capacity = " << str2.capacity() << endl; //15    ÏµÍ³Ä¬ÈÏÔ¤ÁôµÄ
+	cout << "capacity = " << str2.capacity() << endl; //15    ç³»ç»Ÿé»˜è®¤é¢„ç•™çš„
 
-	str2.resize(10,'Y');//ÖØĞÂµ÷ÕûÔªËØµÄ¸öÊı
+	str2.resize(10,'Y');//é‡æ–°è°ƒæ•´å…ƒç´ çš„ä¸ªæ•°
 	cout << "str2 = " << str2 << endl;
 	cout << "size = " << str2.size() << endl;
-	cout << "capacity = " << str2.capacity() << endl; //15    ÏµÍ³Ä¬ÈÏÔ¤ÁôµÄ
+	cout << "capacity = " << str2.capacity() << endl; //15    ç³»ç»Ÿé»˜è®¤é¢„ç•™çš„
 
 	str2.reserve(100);
 	cout << "str2 = " << str2 << endl;
 	cout << "size = " << str2.size() << endl;
-	cout << "capacity = " << str2.capacity() << endl; //15    ÏµÍ³Ä¬ÈÏÔ¤ÁôµÄ
+	cout << "capacity = " << str2.capacity() << endl; //15    ç³»ç»Ÿé»˜è®¤é¢„ç•™çš„
 }
 
 
@@ -209,9 +249,9 @@ void main()
 	auto pos = find(lt1.begin(), lt1.end(), 3);
 	cout << *pos << endl;
 
-	pos = lt1.erase(pos);//ÒªÓĞ·µ»ØÖµ  Ô¤·ÀÊ§Ğ§
+	pos = lt1.erase(pos);//è¦æœ‰è¿”å›å€¼  é¢„é˜²å¤±æ•ˆ
 
-	cout << *pos << endl;//µü´úÆ÷Ê§Ğ§
+	cout << *pos << endl;//è¿­ä»£å™¨å¤±æ•ˆ
 
 	cout << "lt1:";
 	for (const auto& e : lt1)
@@ -232,7 +272,7 @@ void main()
 	for (const auto& e : lt2)
 		cout << e << " ";
 	cout << endl;
-	//ºÏ²¢   Ç°ÌáÌõ¼şÊÇÁ½¸öÁ´±íÒªÏÈÓĞĞò
+	//åˆå¹¶   å‰ææ¡ä»¶æ˜¯ä¸¤ä¸ªé“¾è¡¨è¦å…ˆæœ‰åº
 	lt1.merge(lt2);
 	cout << "lt1:";
 	for (const auto& e : lt1)
@@ -249,12 +289,12 @@ void main()
 		cout << e << " ";
 	cout << endl;
 
-	//ÒÆ³ı
+	//ç§»é™¤
 	//lt1.remove(3);
 
-	//ÅÅĞò
+	//æ’åº
 	//lt1.sort();
-	lt1.sort(greater<int>());//´Ó´óµ½Ğ¡
+	lt1.sort(greater<int>());//ä»å¤§åˆ°å°
 	cout << "lt1:";
 	for (const auto& e : lt1)
 		cout << e << " ";
@@ -281,7 +321,7 @@ void main()
 	list<int> lt2 = { 10,9,8,7,6 };
 
 
-	//½»»»
+	//äº¤æ¢
 	lt1.swap(lt2);
 
 	cout << "lt1:";
@@ -346,7 +386,7 @@ void main()
 	//list<int> lt1;
 	//list<int> lt2(10,5);
 
-	//for (const auto& e : lt2)   //ÒªÓĞbegin()  end()  ++ÈıÖÖµü´úÆ÷
+	//for (const auto& e : lt2)   //è¦æœ‰begin()  end()  ++ä¸‰ç§è¿­ä»£å™¨
 	//	cout << e << " ";
 	//cout << endl;
 	list<int> lt4 = { 1,2,3,4,5,6,7,8,9,10 };
@@ -354,7 +394,7 @@ void main()
 		cout << e << " ";
 	cout << endl;
 
-	//ÊÖ¶¯¶¨Òåµü´úÆ÷
+	//æ‰‹åŠ¨å®šä¹‰è¿­ä»£å™¨
 	list<int>::iterator it = lt4.begin();
 	while (it != lt4.end())
 	{
@@ -363,7 +403,7 @@ void main()
 	}
 	cout << endl;
 
-	//×Ô¶¯ÍÆµ¼
+	//è‡ªåŠ¨æ¨å¯¼
 	auto it1 = lt4.begin();
 	while (it1 != lt4.end())
 	{
@@ -371,7 +411,7 @@ void main()
 		++it1;
 	}
 	cout << endl;
-	//·´ÏòÊä³ö   ÓÃµ½ÁË·´Ïòµü´úÆ÷
+	//åå‘è¾“å‡º   ç”¨åˆ°äº†åå‘è¿­ä»£å™¨
 	list<int> ::reverse_iterator rit = lt4.rbegin();
 	while (rit != lt4.rend())
 	{
