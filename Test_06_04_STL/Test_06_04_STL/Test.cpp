@@ -6,6 +6,8 @@
 #include <array>
 using namespace std;
 
+
+/*
 void main()
 {
 	list<int> lt1;
@@ -25,8 +27,8 @@ void main()
 		cout << e << " ";
 	cout << endl;
 }
+*/
 
-/*
 namespace bit
 {
 	template<class _Ty>
@@ -104,8 +106,8 @@ namespace bit
 		typedef size_t     size_type;
 
 	public:
-		struct _Node;
-		typedef _Node* _Nodeptr;
+		struct _Node;  //先将节点声明 
+		typedef _Node* _Nodeptr; //将节点的指针类型重新命名为—Nodeptr
 		struct _Node
 		{
 			_Nodeptr  _Next;
@@ -118,7 +120,7 @@ namespace bit
 			typedef _Nodeptr& _Nodepref;
 			typedef _Ty& _Vref;
 
-			static _Nodepref  _Next(_Nodeptr _P)
+			static _Nodepref  _Next(_Nodeptr _P)//返回当前 节点到下一个节点的地址
 			{
 				return _P->_Next;
 			}
@@ -207,7 +209,9 @@ namespace bit
 		{
 			_Nodeptr _S = (_Nodeptr)allocator._Charalloc(sizeof(_Node));
 			assert(_S != nullptr);
-			_Acc::_Next(_S) = _Narg != 0 ? _Narg : _S;
+			//_S->_Next = _Narg != 0 ? _Narg : _S;
+			//_S->_Prev = _Prev != 0 ? _Prev : _S;
+			_Acc::_Next(_S) = _Narg != 0 ? _Narg : _S; //因为前面函数的定义是静态的，所以这里直接写_Acc::就可以、
 			_Acc::_Prev(_S) = _Parg != 0 ? _Parg : _S;
 			return _S;
 		}
@@ -246,7 +250,7 @@ void main()
 	}
 	cout << "Over." << endl;
 }
-*/
+
 
 /*
 void main()
