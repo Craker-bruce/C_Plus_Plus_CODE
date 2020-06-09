@@ -13,10 +13,10 @@ void main()
 }
 
 /*
-namespace bit
+namespace bit   //自己设定一个空间就是为了区分系统的函数
 {
 	//浅拷贝
-	class string
+	class string 
 	{
 		friend ostream& operator<<(ostream& out, const string& s);
 	public:
