@@ -7,6 +7,33 @@
 #include <assert.h>
 using namespace std;
 
+//仿函数
+void main()
+{
+	plus<int> pl;//函数对象
+	minus<int> mu;
+	cout << pl(10, 20) << endl;
+	cout << pl.operator()(10, 20) << endl;
+	cout << mu(100, 30) << endl;
+}
+
+/*
+void main()
+{
+	vector<int> v{ 3,2,7,60,4,1,9,8,5 };
+	make_heap(v.begin(), v.end());
+
+	auto it = v.end();
+	while (it != v.begin())
+	{
+		pop_heap(v.begin(), it);
+			it--;
+	}
+	for (auto e : v)
+		cout << e << " ";
+	cout << endl;
+}
+
 void main()
 {
 	priority_queue<int> pq;
@@ -18,8 +45,6 @@ void main()
 
 }
 
-
-/*
 //栈的模拟实现
 
 namespace bit
