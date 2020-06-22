@@ -6,7 +6,6 @@
 #include <functional>
 #include <assert.h>
 using namespace std;
-
 //·Âº¯Êý
 void main()
 {
